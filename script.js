@@ -7,6 +7,7 @@ const playerImage = new Image();
 playerImage.src = './shadow_dog.png';
 const spriteWidth = 575;
 const spriteHeight = 523;
+let playerState = 'getHit';
 
 let gameFrame = 0;
 const staggerFrames = 5;
@@ -72,9 +73,9 @@ function animate() {
    // Nereikalingu spalvu pasalinimas is canva tarp kiekvieno animacijos kadro
    context.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
    // Nustatomas kadras Y i 0:
-   let position = Math.floor(gameFrame / staggerFrames) % spriteAnimations['run'].location.length;
+   let position = Math.floor(gameFrame / staggerFrames) % spriteAnimations[playerState].location.length;
    let frameX = spriteWidth * position;
-   let frameY = spriteAnimations['run'].location[position].y;
+   let frameY = spriteAnimations[playerState].location[position].y;
 
 
    // PRADEDAME PIESTI:
