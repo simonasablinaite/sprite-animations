@@ -7,8 +7,7 @@ const playerImage = new Image();
 playerImage.src = './shadow_dog.png';
 const spriteWidth = 575;
 const spriteHeight = 523;
-let frameX = 0;
-let frameY = 0;
+
 let gameFrame = 0;
 const staggerFrames = 5;
 
@@ -21,7 +20,39 @@ const animationStates = [
    {
       name: 'jump',
       frames: 7,
-   }
+   },
+   {
+      name: 'fall',
+      frames: 7,
+   },
+   {
+      name: 'run',
+      frames: 9,
+   },
+   {
+      name: 'dizzy',
+      frames: 11,
+   },
+   {
+      name: 'sit',
+      frames: 5,
+   },
+   {
+      name: 'roll',
+      frames: 7,
+   },
+   {
+      name: 'bite',
+      frames: 7,
+   },
+   {
+      name: 'ko',
+      frames: 12,
+   },
+   {
+      name: 'getHit',
+      frames: 4,
+   },
 ];
 
 animationStates.forEach((state, index) => {
@@ -41,13 +72,14 @@ function animate() {
    // Nereikalingu spalvu pasalinimas is canva tarp kiekvieno animacijos kadro
    context.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
    // Nustatomas kadras Y i 0:
-   let position = Math.floor(gameFrame / staggerFrames) % 6;
-   frameX = spriteWidth * position;
+   let position = Math.floor(gameFrame / staggerFrames) % spriteAnimations['run'].location.length;
+   let frameX = spriteWidth * position;
+   let frameY = spriteAnimations['run'].location[position].y;
 
 
    // PRADEDAME PIESTI:
    // Piesimo metodas priima 3, 5 arba 9 parametrus, priklausomai kiek norima valdyti vaizda:
-   context.drawImage(playerImage, frameX, frameY * spriteHeight, spriteWidth, spriteHeight, 0, 0, spriteWidth, spriteHeight);
+   context.drawImage(playerImage, frameX, frameY, spriteWidth, spriteHeight, 0, 0, spriteWidth, spriteHeight);
 
    // Metodai, leidziantys pereiti tarp skirtingu animacijos busenu:
 
