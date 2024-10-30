@@ -1,4 +1,8 @@
 #canvas1 {
+  background-image: url("./background.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
   /* elemento iscentravimas */
   position: absolute;
   top: 50%;
@@ -17,8 +21,26 @@
   transform: translateX(-50%);
 }
 
-.controls,
+.controls {
+  font-size: 20px;
+  color: white;
+}
+
+label {
+  text-transform: uppercase;
+  font-family: "Titan One", sans-serif;
+  letter-spacing: 1px;
+  line-height: 30px;
+}
 select,
 option {
-  font-size: 20px;
+  color: black;
+  margin-top: 1rem;
+}
+
+@media (max-width: 568px) {
+  .controls {
+    bottom: 100px;
+    right: 0%;
+  }
 }
