@@ -23,7 +23,6 @@
 
 .controls {
   font-size: 20px;
-  color: white;
 }
 
 label {
@@ -34,7 +33,6 @@ label {
 }
 select,
 option {
-  color: black;
   margin-top: 1rem;
 }
 
