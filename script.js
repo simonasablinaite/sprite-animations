@@ -29,7 +29,7 @@ animationStates.forEach((state, index) => {
       location: [],
    }
 
-   for (let j = 0; j < state.frames; s++) {
+   for (let j = 0; j < state.frames; j++) {
       let positionX = j * spriteWidth;
       let positionY = index * spriteHeight; frames.location.push({ x: positionX, y: positionY });
    }
